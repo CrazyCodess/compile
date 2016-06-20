@@ -17,8 +17,8 @@ public class LexAnalysis {
 	final static int BUFFERSIZE=128;
 	public static void main(String[] args) throws IOException {
 		LexAnalysis lexAna=new LexAnalysis();
-		String currentPath=lexAna.getClass().getResource(".").getFile().toString();  
-		File file=new File(currentPath+"lex.txt");
+		String currentPath=lexAna.getClass().getResource("../").getFile().toString();  
+		File file=new File(currentPath+"/doc/lex.txt");
 		RandomAccessFile fileInput=new RandomAccessFile(file,"r");
 		StringBuffer compileInfo;
 		compileInfo=lexAna.analysis(fileInput);
