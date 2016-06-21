@@ -10,6 +10,7 @@ B->(S)|m
 S->(S)*BU+AT
 
 
-ÁÐ×Ó£ºm+m*m#
+Àý×Ó£ºm+m*m#
 m*m+m*m+m#
 (m*m+m)*m+m*m#
+(m*m+m)*m+m*m+(m*m+m)*m+m*m#

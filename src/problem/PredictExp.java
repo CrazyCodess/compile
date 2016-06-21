@@ -7,6 +7,8 @@ import java.io.RandomAccessFile;
 import java.util.Stack;
 import java.util.Vector;
 
+import org.junit.Test;
+
 import view.LexAnaConsole;
 
 public class PredictExp {
@@ -23,7 +25,7 @@ public class PredictExp {
 		fileInput.close();
 		StringBuffer buffer;
 		buffer=preExp.predict(exp);
-		System.out.println(buffer);
+		//System.out.println(buffer);
 		new LexAnaConsole(buffer,"基于预测分析方法的表达式语法分析器",440,300);
 	}
 	
@@ -43,36 +45,51 @@ public class PredictExp {
 				break;
 			}
 			if((char)stack.peek()=='#'){
-				//System.out.println("top"+(char)stack.pop());
-				System.out.println("top"+(char)stack.peek());
 				if(i>=len){
 					System.out.println("no #");
 					buffer=new StringBuffer("输入符号串请以#号结尾!");
 					break;
 				}
 				else if(exp.charAt(i)=='#'){
-					buffer.append("step\t"+"Rule\t\n");
+					int j;
+					buffer.append("Step\t"+"Rule\t\n");
 					vect.add("接受！");
-					for(int j=0;j<vect.size();j++){
+					for(j=0;j<vect.size();j++){
 						buffer.append((j+1)+"\t"+(String)vect.get(j)+"\n");
+					}
+					buffer.append("推导过程:\n"+vect.get(0));
+					String[] spilt=new String[2];
+					String temp=vect.get(0).split("->")[1];
+					for(j=1;j<vect.size()-1;j++){
+						spilt=vect.get(j).split("->");
+						if(!spilt[0].contains("匹")){
+							buffer.append("->");
+							if(spilt[1].charAt(0)=='$'){
+								temp=temp.replaceFirst(spilt[0],"");
+								buffer.append(temp);
+							}
+								
+							else{ 
+								temp=temp.replaceFirst(spilt[0], spilt[1]);
+								buffer.append(temp);
+							
+							}
+						}
+
 					}
 					break;
 				}
 			}
 			pre=preTab.getProduct(exp.charAt(i), (char)stack.peek());
-			//System.out.println(exp.charAt(i)+"...."+(char)stack.peek());
 			if(pre==null){
-				System.out.println("null");
 				buffer=new StringBuffer("compiler error! 无法识别该文法！");
 				break;
 			}
-			System.out.println(new String(pre));
 			vect.add((char)stack.pop()+"->"+new String(pre).trim());
 			for(int j=pre.length-1;j>=0;j--){
 				if(pre[j]!='$')stack.push(pre[j]);
 			}
 			if((char)stack.peek()==exp.charAt(i)&&exp.charAt(i)!='#'){
-				System.out.println("pop"+(char)stack.peek());
 				vect.add(exp.charAt(i)+"匹配");
 				i++;
 				stack.pop();
@@ -82,7 +99,11 @@ public class PredictExp {
 	}
 	
 	
-	
+	@Test
+	public void test(){
+		String str="0123456";
+		System.out.println(str.indexOf("345"));
+	}
 	
 	
 
