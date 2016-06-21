@@ -159,7 +159,7 @@ public class LexAnalysis {
 							if(temp1.equals("begin")||temp1.equals("if")||temp1.equals("then")||temp1.equals("while")||temp1.equals("do")||temp1.equals("end"));
 							else temp1="letter(letter|digit)*";
 							syn=lex.lexpatt(temp1);
-							buffer.append("("+syn+","+temp1+")");
+							buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 							lexbuff=new char[BUFFERSIZE];
 							System.out.println(buffer);
 							cnt=0;
@@ -173,7 +173,7 @@ public class LexAnalysis {
 							if(temp1.equals("begin")||temp1.equals("if")||temp1.equals("then")||temp1.equals("while")||temp1.equals("do")||temp1.equals("end"));
 							else temp1="letter(letter|digit)*";
 							syn=lex.lexpatt(temp1);
-							buffer.append("("+syn+","+temp1+")");
+							buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 							lexbuff=new char[BUFFERSIZE];
 							System.out.println(buffer);
 							cnt=0;

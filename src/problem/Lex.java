@@ -23,6 +23,7 @@ public class Lex {
 			String[] spilt = table.split("\t");
 			map.put(spilt[0], Integer.parseInt(spilt[1]));
 		}
+		fileInput.close();
 	}
 	
 /*	public Lex(){
