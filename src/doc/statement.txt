@@ -1,0 +1,1 @@
+const count=10,sum=81.5,char1='f',string1="hj",max=169,num=13,str="4657895646";

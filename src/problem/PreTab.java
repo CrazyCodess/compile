@@ -69,7 +69,7 @@ public class PreTab {
 	@Test
 	public void testExp() throws IOException{
 		PreTab preTable=new PreTab();
-		System.out.println(new String(preTable.getProduct('+','B')).trim());
+		System.out.println(new String(preTable.getProduct('(','B')).trim());
 		System.out.println(preTable.getProduct('(','S').length);
 	}
 	

@@ -37,11 +37,20 @@ public class PredictExp {
 		int len=exp.length();
 		stack.push('#');
 		stack.push('S');
-		while(i<len){
-			if(exp.charAt(i)=='#'){
+		while(i<len||!stack.empty()){
+			if(i>=len){
+				buffer=new StringBuffer("compile error! 输入符号串请以#号结尾!");
+				break;
+			}
+			if((char)stack.peek()=='#'){
 				//System.out.println("top"+(char)stack.pop());
-				//System.out.println("top"+(char)stack.peek());
-				if((char)stack.peek()=='#'){
+				System.out.println("top"+(char)stack.peek());
+				if(i>=len){
+					System.out.println("no #");
+					buffer=new StringBuffer("输入符号串请以#号结尾!");
+					break;
+				}
+				else if(exp.charAt(i)=='#'){
 					buffer.append("step\t"+"Rule\t\n");
 					vect.add("接受！");
 					for(int j=0;j<vect.size();j++){
@@ -54,7 +63,7 @@ public class PredictExp {
 			//System.out.println(exp.charAt(i)+"...."+(char)stack.peek());
 			if(pre==null){
 				System.out.println("null");
-				buffer=new StringBuffer("compiler error!");
+				buffer=new StringBuffer("compiler error! 无法识别该文法！");
 				break;
 			}
 			System.out.println(new String(pre));
@@ -69,8 +78,6 @@ public class PredictExp {
 				stack.pop();
 			}
 		}
-		
-		
 		return buffer;
 	}
 	
