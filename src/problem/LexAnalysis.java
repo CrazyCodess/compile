@@ -22,7 +22,7 @@ public class LexAnalysis {
 		RandomAccessFile fileInput=new RandomAccessFile(file,"r");
 		StringBuffer compileInfo;
 		compileInfo=lexAna.analysis(fileInput);
-		new LexAnaConsole(compileInfo);
+		new LexAnaConsole(compileInfo,"´Ê·¨·ÖÎöÆ÷",200,500);
 		fileInput.close();
 	}
 	public StringBuffer analysis(RandomAccessFile filein) throws IOException{

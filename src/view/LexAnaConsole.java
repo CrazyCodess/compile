@@ -33,7 +33,7 @@ public class LexAnaConsole  implements ActionListener {
 	 //JButton jb1, jb2, jb3;
 	 JTextArea jta = null;
 	 JScrollPane jscrollPane;
-	public LexAnaConsole(StringBuffer compileInfo) throws IOException{
+	public LexAnaConsole(StringBuffer compileInfo,String title,int height,int width) throws IOException{
 		
 
 		/*setSize(400, 300);
@@ -70,11 +70,11 @@ public class LexAnaConsole  implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
 		
 		
-		 jf = new JFrame("¥ ∑®±‡“Î–≈œ¢");
+		 jf = new JFrame(title);
 		  Container contentPane = jf.getContentPane();
 		  contentPane.setLayout(new BorderLayout());
 
-		  jta = new JTextArea(10, 15);
+		  jta = new JTextArea(10, 30);
 		  jta.setTabSize(4);
 		  jta.setFont(new java.awt.Font("Dialog", 1, 15));
 		  jta.setLineWrap(true);// º§ªÓ◊‘∂Øªª––π¶ƒ‹
@@ -100,7 +100,7 @@ public class LexAnaConsole  implements ActionListener {
 		  contentPane.add(jscrollPane, BorderLayout.CENTER);
 		  contentPane.add(jpanel, BorderLayout.SOUTH);
 
-		  jf.setSize(400, 300);
+		  jf.setSize(width, height);
 		  jf.setLocation(400, 200);
 		  jf.setVisible(true);
 
@@ -126,7 +126,7 @@ public class LexAnaConsole  implements ActionListener {
 		new LexAnaConsole("±‡“Î¥ÌŒÛ£°");
 	}*/
 	public static void main(String[] args) throws IOException {
-		new LexAnaConsole(new StringBuffer("±‡“Î¥ÌŒÛ£°"));
+		new LexAnaConsole(new StringBuffer("±‡“Î¥ÌŒÛ£°"),"≤‚ ‘",50,50);
 	}
 
 	@Override

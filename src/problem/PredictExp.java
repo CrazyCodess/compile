@@ -24,7 +24,7 @@ public class PredictExp {
 		StringBuffer buffer;
 		buffer=preExp.predict(exp);
 		System.out.println(buffer);
-		new LexAnaConsole(buffer);
+		new LexAnaConsole(buffer,"基于预测分析方法的表达式语法分析器",440,300);
 	}
 	
 	public  StringBuffer predict(String exp) throws IOException{
@@ -42,9 +42,10 @@ public class PredictExp {
 				//System.out.println("top"+(char)stack.pop());
 				//System.out.println("top"+(char)stack.peek());
 				if((char)stack.peek()=='#'){
+					buffer.append("step\t"+"Rule\t\n");
 					vect.add("接受！");
 					for(int j=0;j<vect.size();j++){
-						buffer.append("第"+(j+1)+"步使用的产生式："+(String)vect.get(j)+"\n");
+						buffer.append((j+1)+"\t"+(String)vect.get(j)+"\n");
 					}
 					break;
 				}
