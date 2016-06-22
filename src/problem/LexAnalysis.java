@@ -10,32 +10,30 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import view.LexAnaConsole;
-
 public class LexAnalysis {
 	
 	final static int BUFFERSIZE=128;
 	public static void main(String[] args) throws IOException {
-		LexAnalysis lexAna=new LexAnalysis();
+/*		LexAnalysis lexAna=new LexAnalysis();
 		String currentPath=lexAna.getClass().getResource("../").getFile().toString();  
 		File file=new File(currentPath+"/doc/lex.txt");
 		RandomAccessFile fileInput=new RandomAccessFile(file,"r");
 		StringBuffer compileInfo;
-		compileInfo=lexAna.analysis(fileInput);
-		new LexAnaConsole(compileInfo,"词法分析器",200,500);
-		fileInput.close();
+		compileInfo=lexAna.analysis(fileInput);*/
+		//new LexAnaConsole(compileInfo,"词法分析器",200,500);
+		//fileInput.close();
 	}
-	public StringBuffer analysis(RandomAccessFile filein) throws IOException{
+	public StringBuffer analysis(String temp) throws IOException{
 		char[] lexbuff=new char[BUFFERSIZE];
 		Lex lex=new Lex();
 		int line=1;
 		char t;
 		int syn,len,i;
-		String temp;
+		//String temp;
 		int cnt=0;
 		StringBuffer buffer=new StringBuffer();
 		//System.out.println("-----");
-		while((temp=filein.readLine())!=null){
+		//while((temp=filein.readLine())!=null){
 			i=0;
 			line++;
 			len=temp.length();
@@ -70,13 +68,6 @@ public class LexAnalysis {
 				}
 					
 				else if(Character.isDigit(t)){//识别数字
-					
-					
-					
-					System.out.println("digit");
-					
-					
-					
 					
 					lexbuff[cnt]=t;
 					if(cnt+1>BUFFERSIZE){
@@ -225,7 +216,7 @@ public class LexAnalysis {
 					}
 				}
 			}
-			}
+			//}
 
 		return buffer;
 		//System.out.println(buffer);

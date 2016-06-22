@@ -10,7 +10,6 @@ import java.util.Vector;
 
 import org.junit.Test;
 
-import view.LexAnaConsole;
 
 public class StateLexAna {
 	
@@ -27,7 +26,7 @@ public class StateLexAna {
 		String state=fileInput.readLine();
 		fileInput.close();
 		StringBuffer buffer=stateLex.statementAna(state);
-		new LexAnaConsole(buffer,"说明语句的词法分析器",440,440);
+		//new LexAnaConsole(buffer,"说明语句的词法分析器",440,440);
 	}
 	
 	/**

@@ -9,7 +9,6 @@ import java.util.Vector;
 
 import org.junit.Test;
 
-import view.LexAnaConsole;
 
 public class PredictExp {
 	
@@ -26,7 +25,7 @@ public class PredictExp {
 		StringBuffer buffer;
 		buffer=preExp.predict(exp);
 		//System.out.println(buffer);
-		new LexAnaConsole(buffer,"基于预测分析方法的表达式语法分析器",440,300);
+		//new LexAnaConsole(buffer,"基于预测分析方法的表达式语法分析器",440,300);
 	}
 	
 	public  StringBuffer predict(String exp) throws IOException{
@@ -82,7 +81,7 @@ public class PredictExp {
 			}
 			pre=preTab.getProduct(exp.charAt(i), (char)stack.peek());
 			if(pre==null){
-				buffer=new StringBuffer("compiler error! 无法识别该文法！");
+				buffer=new StringBuffer("compiler error! 无法识别该输入符号串！");
 				break;
 			}
 			vect.add((char)stack.pop()+"->"+new String(pre).trim());
