@@ -1,19 +1,12 @@
 package problem;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.Stack;
 import java.util.Vector;
-
-import org.junit.Test;
-
 
 public class PredictExp {
 	
 
-	public static void main(String[] args) throws IOException {
+/*	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		PredictExp preExp=new PredictExp();
 		String currentPath=preExp.getClass().getResource("../").getFile().toString();  
@@ -26,7 +19,7 @@ public class PredictExp {
 		buffer=preExp.predict(exp);
 		//System.out.println(buffer);
 		//new LexAnaConsole(buffer,"基于预测分析方法的表达式语法分析器",440,300);
-	}
+	}*/
 	
 	public  StringBuffer predict(String exp) throws IOException{
 		PreTab  preTab=new PreTab();
@@ -96,14 +89,4 @@ public class PredictExp {
 		}
 		return buffer;
 	}
-	
-	
-	@Test
-	public void test(){
-		String str="0123456";
-		System.out.println(str.indexOf("345"));
-	}
-	
-	
-
 }

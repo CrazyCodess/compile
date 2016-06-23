@@ -1,47 +1,20 @@
 package problem;
-
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.Scanner;
-
-import org.junit.Test;
-
 public class LexAnalysis {
 	
-	final static int BUFFERSIZE=128;
-	public static void main(String[] args) throws IOException {
-/*		LexAnalysis lexAna=new LexAnalysis();
-		String currentPath=lexAna.getClass().getResource("../").getFile().toString();  
-		File file=new File(currentPath+"/doc/lex.txt");
-		RandomAccessFile fileInput=new RandomAccessFile(file,"r");
-		StringBuffer compileInfo;
-		compileInfo=lexAna.analysis(fileInput);*/
-		//new LexAnaConsole(compileInfo,"词法分析器",200,500);
-		//fileInput.close();
-	}
+	final static int BUFFERSIZE=256;
 	public StringBuffer analysis(String temp) throws IOException{
+		System.out.println(temp+"*");
 		char[] lexbuff=new char[BUFFERSIZE];
 		Lex lex=new Lex();
 		int line=1;
 		char t;
 		int syn,len,i;
-		//String temp;
 		int cnt=0;
 		StringBuffer buffer=new StringBuffer();
-		//System.out.println("-----");
-		//while((temp=filein.readLine())!=null){
 			i=0;
 			line++;
 			len=temp.length();
-			
-			
-			System.out.println(temp+len);
-			
-			
 			cnt=0;
 			while(i<len){
 				t=temp.charAt(i);
@@ -51,7 +24,7 @@ public class LexAnalysis {
 				}
 				else if(t==';'){
 					
-					System.out.println(";");
+					//System.out.println(";");
 					
 						//cnt++;
 						if(cnt+1>BUFFERSIZE){
@@ -93,14 +66,14 @@ public class LexAnalysis {
 							return buffer;
 							
 						}
-						else if(t==' '||t=='\t'){
+						else if(t==' '||t=='\t'||i>=len){//遇到分隔符
 							syn=lex.lexpatt("digitdigit*");
 							buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 							lexbuff=new char[BUFFERSIZE];
 							cnt=0;
 							break;
 						}
-						else if(lex.isExist(t+"")){
+						else if(lex.isExist(t+"")){//遇到特殊符号，分隔符作用
 							syn=lex.lexpatt("digitdigit*");
 							buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 							lexbuff=new char[BUFFERSIZE];
@@ -118,8 +91,8 @@ public class LexAnalysis {
 				}
 				else if(Character.isLetter(t)){
 					
-					System.out.println("letter");
-					System.out.println(t);
+					//System.out.println("letter");
+					//System.out.println(t);
 					
 					if(cnt+1>BUFFERSIZE){
 						buffer=new StringBuffer("compiler error!");
@@ -128,9 +101,8 @@ public class LexAnalysis {
 					}
 					lexbuff[cnt]=t;
 					cnt++;
-					
 					while(i<len){
-						
+						System.out.println("letter");
 						t=(char)temp.charAt(i);
 						i++;
 						if(Character.isLetterOrDigit(t)){
@@ -142,17 +114,17 @@ public class LexAnalysis {
 							lexbuff[cnt]=t;
 							cnt++;
 						}
-						else if(t== ' '||t=='\t'){
+						else if(t== ' '||t=='\t'||i>=len){
 							String temp1=new String(lexbuff).trim();
 							
 							
-							System.out.println("error");
+							//System.out.println("error");
 							if(temp1.equals("begin")||temp1.equals("if")||temp1.equals("then")||temp1.equals("while")||temp1.equals("do")||temp1.equals("end"));
 							else temp1="letter(letter|digit)*";
 							syn=lex.lexpatt(temp1);
 							buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 							lexbuff=new char[BUFFERSIZE];
-							System.out.println(buffer);
+							//System.out.println(buffer);
 							cnt=0;
 							break;
 						}
@@ -160,26 +132,39 @@ public class LexAnalysis {
 							String temp1=new String(lexbuff).trim();
 							
 							
-							System.out.println("error");
+							//System.out.println("error");
 							if(temp1.equals("begin")||temp1.equals("if")||temp1.equals("then")||temp1.equals("while")||temp1.equals("do")||temp1.equals("end"));
 							else temp1="letter(letter|digit)*";
 							syn=lex.lexpatt(temp1);
 							buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 							lexbuff=new char[BUFFERSIZE];
-							System.out.println(buffer);
+							//System.out.println(buffer);
 							cnt=0;
 							i--;
 							break;
 						}
 						else {
 							buffer=new StringBuffer("compiler error!");
-							//System.out.println("error");
 							return buffer;
 						}
 					}
+					
+					
+					String temp1=new String(lexbuff).trim();
+					
+					
+					//System.out.println("error");
+					if(temp1.equals("begin")||temp1.equals("if")||temp1.equals("then")||temp1.equals("while")||temp1.equals("do")||temp1.equals("end"));
+					else temp1="letter(letter|digit)*";
+					syn=lex.lexpatt(temp1);
+					buffer.append("("+syn+","+new String(lexbuff).trim()+")");
+					lexbuff=new char[BUFFERSIZE];
+					//System.out.println(buffer);
+					cnt=0;
+					
 				}
 				else {
-					System.out.println("other");
+					//System.out.println("other");
 					
 					lexbuff[cnt]=t;
 					cnt++;
@@ -216,20 +201,7 @@ public class LexAnalysis {
 					}
 				}
 			}
-			//}
-
 		return buffer;
-		//System.out.println(buffer);
-	}
-	public void compleError(){
-		System.err.println("compiler error!");
-		System.exit(0);
-	}
-	
-	@Test
-	public void test() throws IOException{
-		
-		
 	}
 	
 }

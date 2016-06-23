@@ -24,8 +24,8 @@ public class Test {
 			System.out.println(sbr.toString());
 		}
 */	
-		new Test().getPath();
-
+		//new Test().getPath();
+		System.out.println((int)'+'+"*"+(int)'-'+"*"+(int)'*'+"*"+(int)'/'+"*"+(int)'('+"*"+(int)')'+(char)44);
 		
 	}
 

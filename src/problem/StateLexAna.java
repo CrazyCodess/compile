@@ -8,16 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import org.junit.Test;
-
-
 public class StateLexAna {
 	
 	
 	public static final int BUFFERSIZE=128;
 	
 	
-	public static void main(String[] args) throws IOException {
+/*	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		StateLexAna stateLex = new StateLexAna();
 		String currentPath=stateLex.getClass().getResource("../").getFile().toString();  
@@ -27,7 +24,7 @@ public class StateLexAna {
 		fileInput.close();
 		StringBuffer buffer=stateLex.statementAna(state);
 		//new LexAnaConsole(buffer,"说明语句的词法分析器",440,440);
-	}
+	}*/
 	
 	/**
 	 * @param state
@@ -163,11 +160,4 @@ public class StateLexAna {
 		return buffer;
 		
 	}
-	
-	@Test
-	public void test(){
-		String s="const count=10,sum=81.5,char1='f',string1=\"hj\",max=169;";
-		System.out.println(s.lastIndexOf("const"));
-	}
-	
 }
