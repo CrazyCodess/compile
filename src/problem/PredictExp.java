@@ -3,24 +3,12 @@ import java.io.IOException;
 import java.util.Stack;
 import java.util.Vector;
 
-public class PredictExp {
-	
-
-/*	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		PredictExp preExp=new PredictExp();
-		String currentPath=preExp.getClass().getResource("../").getFile().toString();  
-		File file=new File(currentPath+"/doc/exp.txt");
-		RandomAccessFile fileInput=new RandomAccessFile(file,"r");
-		String exp;
-		exp=fileInput.readLine();
-		fileInput.close();
-		StringBuffer buffer;
-		buffer=preExp.predict(exp);
-		//System.out.println(buffer);
-		//new LexAnaConsole(buffer,"基于预测分析方法的表达式语法分析器",440,300);
-	}*/
-	
+/**
+ * 基于LL(1)文法的预测分析方法的表达式语法分析器
+ * @author CrazyCodess
+ *
+ */
+public class PredictExp {	
 	public  StringBuffer predict(String exp) throws IOException{
 		PreTab  preTab=new PreTab();
 		Stack stack = new Stack();

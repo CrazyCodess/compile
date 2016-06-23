@@ -1,8 +1,8 @@
 package problem;
 
 /**
- * 登记变量
- * @author Admin
+ * 变量登记表
+ * @author CrazyCodess
  *
  */
 public class Statement {

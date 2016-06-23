@@ -3,6 +3,12 @@ package problem;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+
+/**
+ * Ô¤²â·ÖÎö±í
+ * @author CrazyCodess
+ *
+ */
 public class PreTab {
 
 	Exp[] preTable=new Exp[13];
@@ -48,14 +54,4 @@ public class PreTab {
 		}
 		return null;
 	}
-
-
-/*	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		PreTab preTab=new PreTab();
-		
-		for(int i=0;i<13;i++){
-			System.out.println(preTab.preTable[i].getD()+","+preTab.preTable[i].getS()+"->"+new String(preTab.preTable[i].getExp()).trim());
-		}
-	}	*/
 }

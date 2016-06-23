@@ -15,10 +15,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import problem.Arithmetic;
 import problem.LexAnalysis;
 import problem.PredictExp;
 import problem.StateLexAna;
-
+/**
+ * 小型编译器
+ * @author CrazyCodess
+ *
+ */
 public class Compiler  {
 
 	
@@ -35,22 +41,37 @@ public class Compiler  {
 		 mBr.setBackground(Color.darkGray);
 		 jf = new JFrame(title);
 		 jf.setJMenuBar(mBr);
-		 jm=new JMenu("选择");
+		 jm=new JMenu("编译选项");
 		 
-		 JMenuItem[] item = {new JMenuItem("普通词法分析"),new JMenuItem("说明语句词法分析"),new JMenuItem("表达式语法分析")
-				 ,new JMenuItem("清空")};
+		 JMenuItem[] item = {new JMenuItem("普通词法分析"),new JMenuItem("说明语句词法分析"),new JMenuItem("表达式语法分析"),
+				 new JMenuItem("算符优先表达式语法分析"),new JMenuItem("清空")};
 		 //jm.add(item[0]);
 		 //jm.add(item[1]);
 		 for(int i=0;i<item.length;i++){
 			 jm.add(item[i]);
 		 }
 		 
-		 item[3].addActionListener(new ActionListener() {
+		 item[4].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				clear();
+			}
+		});
+		 
+		 item[3].addActionListener(new ActionListener() {
+				
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//clear();
+				try {
+					compile(3);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		 
@@ -154,6 +175,9 @@ public class Compiler  {
 			case 2:
 				PredictExp preExp=new PredictExp();
 				buffer=preExp.predict(temp);
+				break;
+			case 3:Arithmetic arithm=new Arithmetic();
+				buffer=arithm.arith(temp);
 				break;
 		}
 		

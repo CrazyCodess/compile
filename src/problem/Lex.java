@@ -5,6 +5,11 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 初始化编码表
+ * @author CrazyCodess
+ *
+ */
 public class Lex {
 	//int token;
 	Map<String,Integer> map=new HashMap();
@@ -20,7 +25,11 @@ public class Lex {
 		}
 		fileInput.close();
 	}
-	//查询
+	/**
+	 * 根据单词符号返回种别码
+	 * @param lexptr
+	 * @return
+	 */
 	public int lexpatt(String lexptr){
 		int index=-1;
 		lexptr=lexptr.trim();

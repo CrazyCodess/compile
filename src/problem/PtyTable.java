@@ -6,6 +6,11 @@ import java.io.RandomAccessFile;
 
 import org.junit.Test;
 
+/**
+ * 算符优先关系表
+ * @author CrazyCodess
+ *
+ */
 public class PtyTable {
 
 	char[][] oper = new char[8][8];

@@ -1,31 +1,15 @@
 package problem;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Vector;
 
+/**
+ * 说明语句的词法分析
+ * @author CrazyCodess
+ *
+ */
 public class StateLexAna {
 	
 	
 	public static final int BUFFERSIZE=128;
-	
-	
-/*	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		StateLexAna stateLex = new StateLexAna();
-		String currentPath=stateLex.getClass().getResource("../").getFile().toString();  
-		File file=new File(currentPath+"/doc/statement.txt");
-		RandomAccessFile fileInput=new RandomAccessFile(file,"r");
-		String state=fileInput.readLine();
-		fileInput.close();
-		StringBuffer buffer=stateLex.statementAna(state);
-		//new LexAnaConsole(buffer,"说明语句的词法分析器",440,440);
-	}*/
-	
 	/**
 	 * @param state
 	 * @return

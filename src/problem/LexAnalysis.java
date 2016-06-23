@@ -1,10 +1,16 @@
 package problem;
 import java.io.IOException;
+
+/**
+ * ´Ê·¨·ÖÎö
+ * @author CrazyCodess
+ *
+ */
 public class LexAnalysis {
 	
 	final static int BUFFERSIZE=256;
 	public StringBuffer analysis(String temp) throws IOException{
-		System.out.println(temp+"*");
+		temp=temp+" ";
 		char[] lexbuff=new char[BUFFERSIZE];
 		Lex lex=new Lex();
 		int line=1;
@@ -149,7 +155,7 @@ public class LexAnalysis {
 						}
 					}
 					
-					
+/*					
 					String temp1=new String(lexbuff).trim();
 					
 					
@@ -160,7 +166,7 @@ public class LexAnalysis {
 					buffer.append("("+syn+","+new String(lexbuff).trim()+")");
 					lexbuff=new char[BUFFERSIZE];
 					//System.out.println(buffer);
-					cnt=0;
+					cnt=0;*/
 					
 				}
 				else {
@@ -201,7 +207,13 @@ public class LexAnalysis {
 					}
 				}
 			}
+			
+/*			if(lexbuff[0]!=' '){
+				syn=lex.lexpatt(String.valueOf(lexbuff));
+				buffer.append("("+syn+","+new String(lexbuff).trim()+")");
+			}*/
 		return buffer;
 	}
+	
 	
 }
