@@ -9,6 +9,7 @@ import java.util.Vector;
  *
  */
 public class PredictExp {	
+	
 	public  StringBuffer predict(String exp) throws IOException{
 		PreTab  preTab=new PreTab();
 		Stack stack = new Stack();

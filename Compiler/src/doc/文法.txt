@@ -1,0 +1,16 @@
+S->AT
+A->BU
+T->+AT|$
+U->*BU|$
+B->(S)|m
+
+
+
+
+S->(S)*BU+AT
+
+
+Àý×Ó£ºm+m*m#
+m*m+m*m+m#
+(m*m+m)*m+m*m#
+(m*m+m)*m+m*m+(m*m+m)*m+m*m#
