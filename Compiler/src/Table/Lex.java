@@ -19,7 +19,7 @@ public class Lex {
 	
 	public  Lex() throws IOException{
 		
-		InputStream is=getClass().getClassLoader().getResourceAsStream("doc/symtable.properties");
+		InputStream is=getClass().getClassLoader().getResourceAsStream("config/symtable.properties");
 		 BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		String table;
 		while((table=br.readLine())!=null){

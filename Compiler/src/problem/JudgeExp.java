@@ -3,6 +3,11 @@ package problem;
 import java.io.IOException;
 import java.util.Stack;
 import Table.OperTab;
+/**
+ * 对输入的表达式进行判断
+ * @author CrazyCodess
+ *
+ */
 public class JudgeExp {
 
 	public  boolean judge(String exp) throws IOException{

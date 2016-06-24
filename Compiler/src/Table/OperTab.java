@@ -8,12 +8,16 @@ import java.io.InputStreamReader;
 import org.junit.Test;
 
 import problem.Exp;
-
+/**
+ * 表达式的预测分析表
+ * @author CrazyCodess
+ *
+ */
 public class OperTab {
 	Exp[] preTable=new Exp[20];
 	
 	public OperTab() throws IOException{//构造方法初始化预测分析表
-		InputStream is=getClass().getClassLoader().getResourceAsStream("doc/oper.txt");
+		InputStream is=getClass().getClassLoader().getResourceAsStream("config/oper.txt");
 		 BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		String table;
 		int i=0;

@@ -18,7 +18,7 @@ public class PreTab {
 
 	Exp[] preTable=new Exp[13];
 	public PreTab() throws IOException{//构造方法初始化预测分析表
-		InputStream is=getClass().getClassLoader().getResourceAsStream("doc/expPro.txt");
+		InputStream is=getClass().getClassLoader().getResourceAsStream("config/expPro.txt");
 		 BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		String table;
 		int i=0;

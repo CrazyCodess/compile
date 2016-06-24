@@ -17,7 +17,7 @@ public class PtyTable {
 	char[][] oper = new char[8][8];
 	public  PtyTable() throws IOException{
 		
-		InputStream is=getClass().getClassLoader().getResourceAsStream("doc/OperPrio.txt");
+		InputStream is=getClass().getClassLoader().getResourceAsStream("config/OperPrio.txt");
 		 BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		
 		String table;
